@@ -5,6 +5,7 @@
 // Global variables
 let currentMode = "mode1";
 let calculatedDates = [];
+let currentTheme = localStorage.getItem("theme") || "light";
 
 // Base dates for 2025 - Adjusted to ensure Pentecost falls on June 1st
 const BASE_DATES = {
@@ -32,6 +33,29 @@ const MONTH_NAMES = [
 ];
 
 const DAY_NAMES = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+
+// Theme functions
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+
+  // Update theme toggle button icons
+  const sunIcon = document.querySelector(".sun-icon");
+  const moonIcon = document.querySelector(".moon-icon");
+
+  if (theme === "dark") {
+    sunIcon.style.display = "none";
+    moonIcon.style.display = "block";
+  } else {
+    sunIcon.style.display = "block";
+    moonIcon.style.display = "none";
+  }
+}
+
+function toggleTheme() {
+  currentTheme = currentTheme === "light" ? "dark" : "light";
+  setTheme(currentTheme);
+}
 
 // Utility functions
 function getNextSunday(date) {
@@ -269,11 +293,11 @@ function renderCalendar(year, month) {
 function updateModeDescription() {
   const descriptions = {
     mode1:
-      "Cuenta 7 semanas completas (49 días) comenzando desde el domingo después de la Ofrenda Mecida. Pentecostés es el día 50.",
+      "Levítico 23:15-16: 'Y contaréis desde el día que sigue al día de reposo, desde el día en que ofrecisteis la gavilla de la ofrenda mecida; siete semanas cumplidas serán.'",
     mode2:
-      "Cuenta 7 Shabats semanales comenzando desde el sábado después de Nissan 15. Pentecostés es el día después del 7º Shabat.",
+      "Deuteronomio 16:9: 'Siete semanas contarás; desde que comenzare a meterse la hoz en las mieses comenzarás a contar las siete semanas.'",
     mode3:
-      "Cuenta exactamente 50 días desde la Ofrenda Mecida (Nissan 16). El día 50 es Pentecostés.",
+      "Levítico 23:16: 'Hasta el día siguiente del séptimo día de reposo contaréis cincuenta días; entonces ofreceréis el nuevo grano a Jehová.'",
   };
 
   document.getElementById("mode-description").textContent =
@@ -352,6 +376,14 @@ function updateDisplay() {
 
 // Event listeners
 document.addEventListener("DOMContentLoaded", function () {
+  // Set initial theme
+  setTheme(currentTheme);
+
+  // Theme toggle button
+  document
+    .getElementById("theme-toggle")
+    .addEventListener("click", toggleTheme);
+
   // Mode buttons
   document.querySelectorAll(".btn").forEach((btn) => {
     btn.addEventListener("click", function () {

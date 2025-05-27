@@ -1,4 +1,84 @@
-/* All styles from the <style> block in index.html */
+/* Theme variables */
+:root {
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --card-bg: white;
+  --card-border: #e2e8f0;
+  --btn-bg: white;
+  --btn-border: #d1d5db;
+  --btn-text: #374151;
+  --btn-hover: #f3f4f6;
+  --info-bg: #dbeafe;
+  --info-border: #3b82f6;
+  --info-text: #1e40af;
+  --tooltip-bg: #1f2937;
+  --tooltip-text: white;
+  --summary-bg: #f9fafb;
+  --weekday-color: #4b5563;
+  --other-month-color: #6b7280;
+  --day-hover: #f3f4f6;
+  --base-day-bg: #1f2937;
+  --base-day-border: #111827;
+  --pentecost-bg: #dc2626;
+  --pentecost-border: #991b1b;
+  --sabbath-bg: #2563eb;
+  --sabbath-border: #1e40af;
+  --week1-bg: #fee2e2;
+  --week1-border: #fecaca;
+  --week2-bg: #ffedd5;
+  --week2-border: #fed7aa;
+  --week3-bg: #fef3c7;
+  --week3-border: #fde047;
+  --week4-bg: #dcfce7;
+  --week4-border: #86efac;
+  --week5-bg: #dbeafe;
+  --week5-border: #93c5fd;
+  --week6-bg: #e0e7ff;
+  --week6-border: #a5b4fc;
+  --week7-bg: #f3e8ff;
+  --week7-border: #c084fc;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e5e7eb;
+  --card-bg: #2d2d2d;
+  --card-border: #404040;
+  --btn-bg: #404040;
+  --btn-border: #4a4a4a;
+  --btn-text: #e5e7eb;
+  --btn-hover: #4a4a4a;
+  --info-bg: #1e3a8a;
+  --info-border: #3b82f6;
+  --info-text: #e5e7eb;
+  --tooltip-bg: #e5e7eb;
+  --tooltip-text: #1a1a1a;
+  --summary-bg: #2d2d2d;
+  --weekday-color: #9ca3af;
+  --other-month-color: #6b7280;
+  --day-hover: #404040;
+  --base-day-bg: #374151;
+  --base-day-border: #1f2937;
+  --pentecost-bg: #dc2626;
+  --pentecost-border: #991b1b;
+  --sabbath-bg: #2563eb;
+  --sabbath-border: #1e40af;
+  --week1-bg: #7f1d1d;
+  --week1-border: #991b1b;
+  --week2-bg: #92400e;
+  --week2-border: #78350f;
+  --week3-bg: #854d0e;
+  --week3-border: #713f12;
+  --week4-bg: #166534;
+  --week4-border: #14532d;
+  --week5-bg: #1e40af;
+  --week5-border: #1e3a8a;
+  --week6-bg: #3730a3;
+  --week6-border: #312e81;
+  --week7-bg: #6b21a8;
+  --week7-border: #581c87;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +87,11 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px;
 }
 
 .container {
@@ -19,15 +101,17 @@ body {
 }
 
 .card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
+  border: 1px solid var(--card-border);
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .card-header {
   padding: 1.5rem 1.5rem 0;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--card-border);
   margin-bottom: 1.5rem;
 }
 
@@ -35,9 +119,9 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-color);
 }
 
 .card-content {
@@ -57,18 +141,18 @@ body {
 }
 
 .btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #d1d5db;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--btn-border);
   border-radius: 0.375rem;
-  background: white;
-  color: #374151;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 1rem;
   transition: all 0.2s;
 }
 
 .btn:hover {
-  background: #f3f4f6;
+  background: var(--btn-hover);
 }
 
 .btn.active {
@@ -78,16 +162,17 @@ body {
 }
 
 .info-box {
-  background: #dbeafe;
+  background: var(--info-bg);
   padding: 1rem;
   border-radius: 0.5rem;
   margin: 1rem 0;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid var(--info-border);
+  transition: background-color 0.3s;
 }
 
 .info-text {
-  font-size: 0.875rem;
-  color: #1e40af;
+  font-size: 1.1rem;
+  color: var(--info-text);
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
@@ -98,7 +183,7 @@ body {
 }
 
 .legend h4 {
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -113,7 +198,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .legend-color {
@@ -131,16 +216,18 @@ body {
 }
 
 .calendar-month {
-  background: white;
+  background: var(--card-bg);
   border-radius: 0.5rem;
   padding: 1rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--card-border);
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .month-title {
   text-align: center;
   font-weight: 500;
   margin-bottom: 1rem;
+  font-size: 1.25rem;
 }
 
 .weekdays {
@@ -152,9 +239,9 @@ body {
 
 .weekday {
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--weekday-color);
   padding: 0.25rem;
 }
 
@@ -165,12 +252,12 @@ body {
 }
 
 .day {
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -178,75 +265,83 @@ body {
 }
 
 .day:hover {
-  background: #f3f4f6;
+  background: var(--day-hover);
 }
 
 .day.other-month {
-  color: #9ca3af;
+  color: var(--other-month-color);
 }
 
 .day.other-month.special {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 /* Special day styles */
 .day.base {
-  background: #1f2937;
+  background: var(--base-day-bg);
   color: white;
-  border-color: #111827;
+  border-color: var(--base-day-border);
 }
 
 .day.pentecost {
-  background: #ef4444;
+  background: var(--pentecost-bg);
   color: white;
-  border-color: #b91c1c;
+  border-color: var(--pentecost-border);
   font-weight: bold;
 }
 
 .day.sabbath {
-  background: #3b82f6;
+  background: var(--sabbath-bg);
   color: white;
-  border-color: #1d4ed8;
+  border-color: var(--sabbath-border);
 }
 
 .day.counting.week1 {
-  background: #fecaca;
-  border-color: #fca5a5;
+  background: var(--week1-bg);
+  border-color: var(--week1-border);
+  color: var(--text-color);
 }
 
 .day.counting.week2 {
-  background: #fed7aa;
-  border-color: #fdba74;
+  background: var(--week2-bg);
+  border-color: var(--week2-border);
+  color: var(--text-color);
 }
 
 .day.counting.week3 {
-  background: #fef3c7;
-  border-color: #fde047;
+  background: var(--week3-bg);
+  border-color: var(--week3-border);
+  color: var(--text-color);
 }
 
 .day.counting.week4 {
-  background: #dcfce7;
-  border-color: #86efac;
+  background: var(--week4-bg);
+  border-color: var(--week4-border);
+  color: var(--text-color);
 }
 
 .day.counting.week5 {
-  background: #dbeafe;
-  border-color: #93c5fd;
+  background: var(--week5-bg);
+  border-color: var(--week5-border);
+  color: var(--text-color);
 }
 
 .day.counting.week6 {
-  background: #e0e7ff;
-  border-color: #a5b4fc;
+  background: var(--week6-bg);
+  border-color: var(--week6-border);
+  color: var(--text-color);
 }
 
 .day.counting.week7 {
-  background: #f3e8ff;
-  border-color: #c084fc;
+  background: var(--week7-bg);
+  border-color: var(--week7-border);
+  color: var(--text-color);
 }
 
 .summary {
-  background: #f9fafb;
+  background: var(--summary-bg);
   border-radius: 0.5rem;
+  transition: background-color 0.3s;
 }
 
 .summary-content {
@@ -256,14 +351,15 @@ body {
 .summary h4 {
   font-weight: 500;
   margin-bottom: 0.75rem;
+  font-size: 1.25rem;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
+  padding: 0.375rem 0.75rem;
   border-radius: 0.375rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 500;
   background: #ef4444;
   color: white;
@@ -272,11 +368,11 @@ body {
 
 .tooltip {
   position: absolute;
-  background: #1f2937;
-  color: white;
-  padding: 0.5rem;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  padding: 0.75rem;
   border-radius: 0.375rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   z-index: 1000;
   pointer-events: none;
   opacity: 0;
@@ -295,7 +391,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   border: 0.25rem solid transparent;
-  border-top-color: #1f2937;
+  border-top-color: var(--tooltip-bg);
 }
 
 .day:hover .tooltip {
@@ -308,7 +404,45 @@ body {
   }
 
   .btn {
-    font-size: 0.75rem;
-    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
   }
+
+  .day {
+    height: 2.25rem;
+    width: 2.25rem;
+    font-size: 0.9rem;
+  }
+
+  .tooltip {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  background: var(--btn-hover);
+}
+
+.theme-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--text-color);
 }
