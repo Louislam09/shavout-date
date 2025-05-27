@@ -446,3 +446,66 @@ body {
   height: 1.5rem;
   color: var(--text-color);
 }
+
+/* Navigation */
+.nav-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.nav-button {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Names Page Styles */
+.names-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.name-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.name-card:hover {
+  transform: translateY(-5px);
+}
+
+.name-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.name-card .language {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.name-card .meaning {
+  font-size: 1.1em;
+  color: var(--text-color);
+}
