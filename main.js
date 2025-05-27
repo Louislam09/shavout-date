@@ -339,8 +339,7 @@ function renderCalendars() {
   calendarGrid.innerHTML =
     renderCalendar(2025, 3) + // April
     renderCalendar(2025, 4) + // May
-    renderCalendar(2025, 5) + // June
-    renderCalendar(2026, 0); // June
+    renderCalendar(2025, 5); // June
 }
 
 function updateDisplay() {
