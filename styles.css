@@ -1,0 +1,314 @@
+/* All styles from the <style> block in index.html */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.card-content {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #f3f4f6;
+}
+
+.btn.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.info-box {
+  background: #dbeafe;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  border-left: 4px solid #3b82f6;
+}
+
+.info-text {
+  font-size: 0.875rem;
+  color: #1e40af;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.legend {
+  margin: 1.5rem 0;
+}
+
+.legend h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.legend-color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.calendar-month {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+}
+
+.month-title {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  padding: 0.25rem;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.day {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.day:hover {
+  background: #f3f4f6;
+}
+
+.day.other-month {
+  color: #9ca3af;
+}
+
+.day.other-month.special {
+  opacity: 0.5;
+}
+
+/* Special day styles */
+.day.base {
+  background: #1f2937;
+  color: white;
+  border-color: #111827;
+}
+
+.day.pentecost {
+  background: #ef4444;
+  color: white;
+  border-color: #b91c1c;
+  font-weight: bold;
+}
+
+.day.sabbath {
+  background: #3b82f6;
+  color: white;
+  border-color: #1d4ed8;
+}
+
+.day.counting.week1 {
+  background: #fecaca;
+  border-color: #fca5a5;
+}
+
+.day.counting.week2 {
+  background: #fed7aa;
+  border-color: #fdba74;
+}
+
+.day.counting.week3 {
+  background: #fef3c7;
+  border-color: #fde047;
+}
+
+.day.counting.week4 {
+  background: #dcfce7;
+  border-color: #86efac;
+}
+
+.day.counting.week5 {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.day.counting.week6 {
+  background: #e0e7ff;
+  border-color: #a5b4fc;
+}
+
+.day.counting.week7 {
+  background: #f3e8ff;
+  border-color: #c084fc;
+}
+
+.summary {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+}
+
+.summary-content {
+  padding: 1.5rem;
+}
+
+.summary h4 {
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #ef4444;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.tooltip {
+  position: absolute;
+  background: #1f2937;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.25rem;
+}
+
+.tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.25rem solid transparent;
+  border-top-color: #1f2937;
+}
+
+.day:hover .tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+}
